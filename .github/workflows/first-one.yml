@@ -1,0 +1,15 @@
+name: My first workflow
+on: workflow_dispatch
+jobs:
+  first_job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print something on UI
+        run: |
+          echo "Hello world"
+          echo "Bye world"
+      - name: Something to add
+        run: |
+          echo "New Learning"
+          echo "New beginning"
+    
