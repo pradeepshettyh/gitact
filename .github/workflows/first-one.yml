@@ -25,6 +25,7 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo " the value is ${{ executeornot }}  ${{ browsername }}  ${{ branchname }}" 
       - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }} ${{ inputs.executeornot }} "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
