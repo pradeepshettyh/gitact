@@ -78,6 +78,9 @@ jobs:
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
           echo "handle=pradeep" >> $GITHUB_OUTPUT
+      - name: Print the output value
+        run: echo "------------>${{ steps.getpth.outputs.handle }}"
+     
   Explore-GitHub-Actions1:
     needs: [Explore-GitHub-Actions]
     environment: dev
