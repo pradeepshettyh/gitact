@@ -59,9 +59,9 @@ jobs:
     env:
      test1: shetty
     runs-on: ubuntu-latest
-    if: ${{ inputs.executeornot == 'true' && vars.EQ_XY == secrets.MY_NAME }}
+    if: ${{ inputs.executeornot }} 
     steps:
-      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
+      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }} $${{ vars.EQ_XY == secrets.MY_NAME }} "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
