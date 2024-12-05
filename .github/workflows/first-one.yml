@@ -24,7 +24,7 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    if: ${{ executeornot }} 
+    if: ${{ inputs.executeornot }} 
     steps:
       - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
