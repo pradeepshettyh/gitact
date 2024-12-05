@@ -4,21 +4,11 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      branchname10: 
-        required: true
-        description: "Enter a value for branch"
-        type: string
-        default: sample_123
-      branchname1: 
-        required: true
-        description: "Enter a value for branch"
-        type: string
-        default: sample_123
       branchname2: 
         required: true
         description: "Enter a value for branch"
         type: string
-        default: sample_123  
+        default: "{\"gender\": \"Female\",\"age\": 32}"
       branchname3: 
         required: true
         description: "Enter a value for branch"
@@ -66,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ inputs.executeornot }} 
     steps:
-      - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }}  "
+      - run: echo " the value is ${{ inputs.branchname2.gender }} ${{ inputs.browsername }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
