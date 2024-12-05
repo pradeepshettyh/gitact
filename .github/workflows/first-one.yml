@@ -79,7 +79,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
-          echo "handle=pradeep" >> "$GITHUB_OUTPUT"
+          echo "handle=$files" >> "$GITHUB_OUTPUT"
       - name: Print the output value
         run: echo "------------>${{ steps.getpth.outputs.handle }}"
       - id: step1
