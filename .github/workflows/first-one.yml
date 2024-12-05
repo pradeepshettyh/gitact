@@ -51,12 +51,15 @@ on:
         required: true
         type: boolean
         default: false
+env:
+  testingone: ${{ secrets.MY_NAME }}
+  test2: "NONPROD"        
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     if: ${{ inputs.executeornot }} 
     steps:
-      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ secrets.EQ_XY }} ${{ secrets.MY_NAME }} "
+      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ env.testingone }} ${{ env.test2 }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
