@@ -55,13 +55,13 @@ env:
   test2: "NONPROD"        
 jobs:
   Explore-GitHub-Actions:
-    environment: testing
+    environment: qa
     env:
      test1: shetty
     runs-on: ubuntu-latest
     if: ${{ inputs.executeornot }} 
     steps:
-      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ env.test1 }} ${{ env.test2 }}  "
+      - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ env.REPO_VAR1 }} ${{ env.test2 }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
