@@ -54,7 +54,7 @@ env:
   test1: pradeep
   test2: "NONPROD"        
 jobs:
-  Explore-GitHub-Actions:
+  job1:
     environment: qa
     env:
      test1: shetty
@@ -85,14 +85,14 @@ jobs:
       - id: step2
         run: echo "test=world" >> "$GITHUB_OUTPUT"   
      
-  Explore-GitHub-Actions1:
-    needs: Explore-GitHub-Actions
+  job2:
+    needs: job1
     environment: dev
     env:
      test1: shetty
     runs-on: ubuntu-latest
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
-      - run: echo " the value is ${{ needs.Explore-GitHub-Actions.outputs.handle }} kaka"
-      - run: echo "${{needs.Explore-GitHub-Actions1.outputs.output1}} ${{needs.Explore-GitHub-Actions1.outputs.output2}}"
+      - run: echo " the value is ${{ needs.job1.outputs.handle }} kaka"
+      - run: echo "${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}"
 
