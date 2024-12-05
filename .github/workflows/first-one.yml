@@ -82,12 +82,12 @@ jobs:
         run: echo "------------>${{ steps.getpth.outputs.handle }}"
      
   Explore-GitHub-Actions1:
+    runs-on: ubuntu-latest
     needs: Explore-GitHub-Actions
     environment: dev
     env:
      test1: shetty
-     val: ${{ needs.Explore-GitHub-Actions.outputs.handle }}
-    runs-on: ubuntu-latest
+     val: ${{ needs.Explore-GitHub-Actions.outputs.handle }}    
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
       - run: echo " the value is ${{ env.val }} kaka ${{ env.test1 }}"
