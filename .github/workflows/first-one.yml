@@ -90,5 +90,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
-      - run: echo " the value is ${{ env.val }} kaka"
+      - run: echo " the value is ${{ env.val }} kaka ${{ env.test1 }}"
 
