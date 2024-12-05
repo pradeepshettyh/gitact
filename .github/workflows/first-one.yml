@@ -82,12 +82,11 @@ jobs:
         run: echo "------------>${{ steps.getpth.outputs.handle }}"
      
   Explore-GitHub-Actions1:
-    needs: [Explore-GitHub-Actions]
+    needs: Explore-GitHub-Actions
     environment: dev
     env:
      test1: shetty
     runs-on: ubuntu-latest
-    if: ${{ inputs.executeornot }} 
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
       - run: echo " the value is ${{ needs.Explore-GitHub-Actions.outputs.handle }} kaka"
