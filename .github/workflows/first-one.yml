@@ -90,5 +90,5 @@ jobs:
      val: ${{ needs.Explore-GitHub-Actions.outputs.handle }}    
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
-      - run: echo " the value is ${{ env.val }} kaka ${{ env.test1 }}"
+      - run: echo " the value is ${{ env.val }} kaka ${{ env.test1 }} ${{needs.Explore-GitHub-Actions.outputs.handle}} "
 
