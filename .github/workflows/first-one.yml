@@ -1,10 +1,31 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [workflow_dispatch, push]
+on: 
+  push:
+  workflow_dispatch:
+    inputs:
+      branchname: 
+        required: true
+        description: "Enter a value for branch"
+        type: text
+        default: sample_123
+      browsername:
+        required: true
+        type: choice
+        default: chrome
+        options:
+          - firefox
+          - chrome
+          - edge
+      executeornot:
+        required: true
+        type: boolean
+        default: false
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }} ${{ inputs.executeornot }} "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
