@@ -4,6 +4,11 @@ on:
   push:
   workflow_dispatch:
     inputs:
+      branchname10: 
+        required: true
+        description: "Enter a value for branch"
+        type: string
+        default: sample_123
       branchname1: 
         required: true
         description: "Enter a value for branch"
