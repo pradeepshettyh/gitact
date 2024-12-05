@@ -7,7 +7,7 @@ on:
       branchname: 
         required: true
         description: "Enter a value for branch"
-        type: text
+        type: string
         default: sample_123
       browsername:
         required: true
@@ -24,9 +24,9 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    if: ${{ executeornot }} 
     steps:
-      - run: echo " the value is ${{ executeornot }}  ${{ browsername }}  ${{ branchname }}" 
-      - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }} ${{ inputs.executeornot }} "
+      - run: echo " the value is ${{ inputs.branchname }} ${{ inputs.browsername }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
