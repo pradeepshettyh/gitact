@@ -77,7 +77,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
-          echo "handle=${files}" >> "$GITHUB_OUTPUT"
+          echo "handle=pradeep" >> "$GITHUB_OUTPUT"
   Explore-GitHub-Actions1:
     needs: [Explore-GitHub-Actions]
     environment: dev
