@@ -59,7 +59,7 @@ jobs:
     env:
      test1: shetty
     runs-on: ubuntu-latest
-    if: ${{ inputs.executeornot }} && ${{ vars.EQ_XY == secrets.MY_NAME }}
+    if: ${{ inputs.executeornot == 'true' && vars.EQ_XY == secrets.MY_NAME }}
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
       - run: echo " The run number is ${{ github.run_number }} --- ${{ github.run_id }} "
