@@ -59,6 +59,8 @@ jobs:
     env:
      test1: shetty
     runs-on: ubuntu-latest
+    outputs:
+      handle: ${{ steps.getpth.handle }}
     if: ${{ inputs.executeornot }} 
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }} "
@@ -71,9 +73,11 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
+        id: getpth
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          files="${{ github.workspace }}"
+          echo "handle=${files}" >> "$GITHUB_OUTPUT"
   Explore-GitHub-Actions1:
     needs: [Explore-GitHub-Actions]
     environment: dev
@@ -83,4 +87,5 @@ jobs:
     if: ${{ inputs.executeornot }} 
     steps:
       - run: echo " the value is ${{ fromJSON(inputs.branchname2).gender }} ${{ inputs.browsername }} ${{ vars.EQ_XY }} ${{ env.test2 }}  "
+      - run: echo " the value is ${{ needs.Explore-GitHub-Actions.outputs.handle }} "
 
