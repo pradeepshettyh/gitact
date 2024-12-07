@@ -22,6 +22,6 @@ jobs:
     steps: 
       - name: sample code
         run: |
-          echo "The value is ${{needs.First-job.outputs.handle}}"
+          echo "The value is ${{needs.First-job.outputs.output1}}"
         
     
