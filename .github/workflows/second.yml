@@ -9,9 +9,10 @@ jobs:
       handle: ${{ steps.step1.outputs.handle }}
     steps:
       - name: checkout code
-        id: step1
         uses: actions/checkout@v4
-      - run: |
+      - name: some code
+        id: step1
+        run: |
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
           echo "handle=$files" >> "$GITHUB_OUTPUT"
