@@ -1,0 +1,27 @@
+name: second flow
+on: [workflow_dispatch]
+run-name: Testing my knowledge
+jobs:
+  First-job: 
+    name: My Job to Test
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{steps.step1.outputs.handle}}
+    steps:
+      - name: checkout code
+        id: step1
+        uses: actions/checkout@v4
+      - run: |
+          ls ${{ github.workspace }}
+          files="${{ github.workspace }}"
+          echo "handle=$files" >> "$GITHUB_OUTPUT"
+  Second-job:
+    name: hello how
+    needs: First-job
+    runs-on: ubuntu-latest
+    steps: 
+      - name: sample code
+        run: |
+          echo "The value is ${{needs.First-job.outputs.handle}}"
+        
+    
