@@ -15,6 +15,7 @@ jobs:
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
           echo "handle=$files" >> "$GITHUB_OUTPUT"
+          echo "runner name ${{runner.name}}"
   Second-job:
     name: hello how
     needs: First-job
@@ -23,5 +24,6 @@ jobs:
       - name: sample code
         run: |
           echo "The value is ${{needs.First-job.outputs.handle}}"
+          echo "runner name ${{runner.name}}"
         
     
