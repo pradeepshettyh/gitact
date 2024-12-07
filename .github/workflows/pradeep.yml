@@ -1,0 +1,10 @@
+name: Pradeep Testing
+on: workflow_dispatch
+jobs:
+    job1:
+        name: Pradeep first job
+        runs-on: ubuntu-latest
+        steps:
+            - name: downloading some stuff
+              run: |
+                
