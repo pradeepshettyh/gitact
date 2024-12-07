@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       handle: ${{ steps.step1.outputs.handle }}
-      runner: ${{ steps.step1.outputs.runner }}
+      runner1: ${{ steps.step1.outputs.runner1 }}
     steps:
       - name: checkout code
         uses: actions/checkout@v4
@@ -17,11 +17,11 @@ jobs:
           ls ${{ github.workspace }}
           files="${{ github.workspace }}"
           echo "handle=$files" >> "$GITHUB_OUTPUT"
-          echo "runner name runner=${{runner.name}}" >> "$GITHUB_OUTPUT"
+          echo "runner1=${{runner.name}}" >> "$GITHUB_OUTPUT"
   Second-job:
     name: hello how
     needs: First-job
-    runs-on: ${{needs.First-job.outputs.runner}}
+    runs-on: ${{needs.First-job.outputs.runner1}}
     steps: 
       - name: sample code
         run: |
