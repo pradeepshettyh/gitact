@@ -6,7 +6,7 @@ jobs:
     name: My Job to Test
     runs-on: ubuntu-latest
     outputs:
-      handle: ${{steps.step1.outputs.handle}}
+      handle: ${{ steps.step1.outputs.handle }}
     steps:
       - name: checkout code
         id: step1
