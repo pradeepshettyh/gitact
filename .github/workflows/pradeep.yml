@@ -9,7 +9,7 @@ jobs:
             - name: first step
               run: |
                 echo 'Hello how are you'
-                echo 10/0
+                exit 1
             - name: second step
               run: |
                 echo 'keka taka ${{ github.ref }}'                           
