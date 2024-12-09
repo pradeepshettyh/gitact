@@ -1,19 +1,22 @@
+name: Reusable Workflow
 
-name: Wflow call flow
-on: 
-    workflow_call: 
-        inputs:
-            bname:
-                default: matres
-                description: Enter branch name
-                required: false
-                type: string
-run-name: Testing few  things
+on:
+  workflow_call:
+    inputs:
+      branchname:
+        required: true
+        type: string
+      urname:
+        required: false
+        type: string
+
 jobs:
-    hellofelow:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Enter something
-              run: |
-                echo "Hello world ${{ inputs.bname }}"
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Inputs
+        run: |
+          echo "Branch: ${{ inputs.branchname }}"
+          echo "User Name: ${{ inputs.urname }}"
+
 
