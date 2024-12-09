@@ -21,3 +21,9 @@ jobs:
       - name: My First Step
         run: |
           echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }} ${{ github.workspace }}"
+      - name: Something new
+        uses: ./.github/workflows/reusable.yml
+        with:
+          branchname: "main"
+          urname: "John Doe"
+        
