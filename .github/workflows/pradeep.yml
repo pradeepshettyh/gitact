@@ -20,4 +20,4 @@ jobs:
 
       - name: My First Step
         run: |
-          echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }} ${{ github.workspace }"
+          echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }} ${{ github.workspace }}"
