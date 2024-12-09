@@ -1,0 +1,38 @@
+name: Class 1 workflow
+run-name: Testing class 1
+on: 
+    workflow_dispatch:
+        inputs:
+            allInputs:
+                default: "{\"id\":\"10\", \"gender\":\"hello\"}"
+                type: string
+            noInputs:
+                default: master
+                type: string
+jobs:
+    firstjob:
+        name: First Job
+        runs-on: ubuntu-latest
+        outputs:
+            sample: ${{steps.step1.outputs.val}}
+        steps:
+            - name: step 1st
+              id: step1
+              run: |
+                echo  `Hello world ${{ inputs.allInputs }}`
+                echo  `Hello mama ${{ inputs.noInputs }}`
+                echo  "Hello kaka ${{vars.REPO_VAR1}}"
+                echo  "val=pradeep shetty" >> $GITHUB_OUTPUT
+                sleep 15
+                exit 1
+    secondjob:
+       name: Second Job 
+       runs-on: ubuntu-latest
+       needs: firstjob
+       steps:
+           - name: step one
+             run: |  
+                echo "The value is ${{ needs.firstjob.outputs.sample }}"
+       
+                  
+
