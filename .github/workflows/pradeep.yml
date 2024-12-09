@@ -1,10 +1,25 @@
-name: Pradeep Testing
+name: Pradeep Learning
 on: workflow_dispatch
+run-name: Something Data
 jobs:
-    job1:
-        name: Pradeep first job
+    first-job: 
+        name: Testing my first job
         runs-on: ubuntu-latest
         steps:
-            - name: downloading some stuff
+            - name: first step
               run: |
-                
+                echo 'Hello how are you'
+                echo 10/0
+            - name: second step
+              run: |
+                echo 'keka taka ${{ github.ref }}'                           
+
+              
+
+        
+
+
+
+
+  
+  
