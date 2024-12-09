@@ -19,12 +19,11 @@ jobs:
             - name: step 1st
               id: step1
               run: |
-                echo  `Hello world ${{ inputs.allInputs }}`
-                echo  `Hello mama ${{ inputs.noInputs }}`
+                echo  "Hello world ${{ inputs.allInputs }} "
+                echo  "Hello mama ${{ inputs.noInputs }}"
                 echo  "Hello kaka ${{vars.REPO_VAR1}}"
                 echo  "val=pradeep shetty" >> $GITHUB_OUTPUT
                 sleep 15
-                exit 1
     secondjob:
        name: Second Job 
        runs-on: ubuntu-latest
