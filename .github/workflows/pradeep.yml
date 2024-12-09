@@ -18,8 +18,13 @@ jobs:
     if: ${{ inputs.branchname != 'master'  }}
     runs-on: ubuntu-latest
     steps:
+        - name: checkout the code
+          uses: actions/checkout@v3
         - name: calling reusable flow
-          uses: "./reusable.yml"
+          uses: ./.github/workflows/reusable.yml
+          with:
+              bname: mama majare
+          
         - name: my first step
           run: |
             echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
