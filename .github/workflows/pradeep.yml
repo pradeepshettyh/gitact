@@ -7,10 +7,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: first step
+              id: run-tests
               run: |
                 echo 'Hello how are you'
                 exit 1
             - name: second step
+              if: failure() && steps.run-tests.outcome == 'failure'
               run: |
                 echo 'keka taka ${{ github.ref }}'                           
 
