@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: calling reusable flow
-          uses: ./.github/workflows/reusable.yml
+          uses: "./reusable.yml"
         - name: my first step
           run: |
             echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
