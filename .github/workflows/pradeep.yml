@@ -21,10 +21,9 @@ jobs:
       - name: Call reusable workflow
         uses: ./.github/workflows/reusable.yml
         with:
-          bname: ${{ inputs.branchname }}
-
+          branchname: ${{ inputs.branchname }}
+          urname: ${{ inputs.urname }}
 
       - name: My First Step
         run: |
           echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
-
