@@ -20,10 +20,11 @@ jobs:
     steps:
         - name: checkout the code
           uses: actions/checkout@v3
-        - name: calling reusable flow
+          
+        - name: call reusable
           uses: ./.github/workflows/reusable.yml
           with:
-              bname: mama majare
+            bname: keke kaka
           
         - name: my first step
           run: |
