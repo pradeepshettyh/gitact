@@ -1,7 +1,6 @@
 name: Reusable Workflow
-
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       branchname:
         required: true
@@ -9,14 +8,11 @@ on:
       urname:
         required: false
         type: string
-
 jobs:
   example-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Show Inputs
+      - name: Print Inputs
         run: |
           echo "Branch: ${{ inputs.branchname }}"
           echo "User Name: ${{ inputs.urname }}"
-
-
