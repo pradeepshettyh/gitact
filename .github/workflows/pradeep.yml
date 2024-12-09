@@ -1,31 +1,30 @@
 name: Usable and Reusable Flow
 run-name: Testing reusability
 on:
-    workflow_dispatch: 
-        inputs:
-            branchname:
-                default: master
-                description: Enter branch name
-                required: true
-                type: string
-            urname:
-                default: pradeep
-                description: enter your name
-                required: true
-                type:  string
+  workflow_call:
+    inputs:
+      branchname:
+        required: true
+        type: string
+      urname:
+        required: false
+        type: string
+
 jobs:
   firstjob:
-    if: ${{ inputs.branchname != 'master'  }}
+    if: ${{ inputs.branchname != 'master' }}
     runs-on: ubuntu-latest
     steps:
-        - name: checkout the code
-          uses: actions/checkout@v3
-          
-        - name: call reusable
-          uses: ./.github/workflows/reusable.yml
-          with:
-            bname: keke kaka
-          
-        - name: my first step
-          run: |
-            echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Call reusable workflow
+        uses: ./.github/workflows/reusable.yml
+        with:
+          bname: ${{ inputs.branchname }}
+
+
+      - name: My First Step
+        run: |
+          echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
+
