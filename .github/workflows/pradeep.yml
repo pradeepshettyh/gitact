@@ -13,17 +13,8 @@ on:
 jobs:
   firstjob:
     if: ${{ inputs.branchname != 'master' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: My First Step
-        run: |
-          echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }} ${{ github.workspace }}"
-      - name: Something new
-        uses: ./.github/workflows/reusable.yml
-        with:
-          branchname: "main"
-          urname: "John Doe"
+    uses: ./.github/workflows/reusable.yml
+    with:
+     branchname: "main"
+     urname: "John Doe"
         
