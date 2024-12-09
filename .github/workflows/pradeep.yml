@@ -13,7 +13,7 @@ jobs:
                 echo 'Hello how are you'
                 exit 1
             - name: second step
-              if: failure() && steps.run-tests.outcome == 'failure'
+              if: steps.run-tests.outcome == 'failure'
               run: |
                 echo 'keka taka ${{ github.ref }}'                           
 
