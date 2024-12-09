@@ -1,32 +1,23 @@
-name: Pradeep Learning
-on: workflow_dispatch
-run-name: Something Data
+name: Usable and Reusable Flow
+run-name: Testing reusability
+on:
+    workflow_dispatch: 
+        inputs:
+            branchname:
+                default: master
+                description: Enter branch name
+                required: true
+                type: string
+            urname:
+                default: pradeep
+                description: enter your name
+                required: true
+                type:  string
 jobs:
-    first-job: 
-        name: Testing my first job
-        runs-on: ubuntu-latest
-        continue-on-error: true 
-        strategy:
-          matrix:
-            os_version: [1,2,3]
-            some_version: [4,5]
-        steps:
-            - name: first step
-              id: run-tests
-              run: |
-                echo 'Hello how are you'
-                exit 1
-            - name: second step
-              if: 
-              run: |
-                echo 'keka taka ${{ matrix.os_version }} ----- ${{ matrix.some_version }}'                           
-
-              
-
-        
-
-
-
-
-  
-  
+  firstjob:
+    if: ${{ inputs.branchname != 'master'  }}
+    runs-on: ubuntu-latest
+    steps:
+        - name: my first step
+          run: |
+            echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
