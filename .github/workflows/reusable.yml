@@ -6,7 +6,7 @@ on:
             bname:
                 default: matres
                 description: Enter branch name
-                required: true
+                required: false
                 type: string
 run-name: Testing few  things
 jobs:
