@@ -5,17 +5,20 @@ jobs:
     first-job: 
         name: Testing my first job
         runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            os_version: [1,2,3]
+            some_version: [4,5]
         steps:
             - name: first step
               id: run-tests
-              continue-on-error: true
               run: |
                 echo 'Hello how are you'
                 exit 1
             - name: second step
-              if: steps.run-tests.outcome == 'failure'
+              if: 
               run: |
-                echo 'keka taka ${{ github.ref }}'                           
+                echo 'keka taka ${{ matrix.os_version }} ----- ${{ matrix.some_version }}'                           
 
               
 
