@@ -18,8 +18,8 @@ jobs:
     if: ${{ inputs.branchname != 'master'  }}
     runs-on: ubuntu-latest
     steps:
+        - name: calling reusable flow
+          uses: ./.github/workflows/reusable.yml
         - name: my first step
           run: |
             echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
-        - name: calling reusable flow
-          uses: ./.github/workflows/reusable.yml
