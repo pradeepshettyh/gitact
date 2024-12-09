@@ -1,7 +1,7 @@
 name: Usable and Reusable Flow
 run-name: Testing reusability
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       branchname:
         required: true
