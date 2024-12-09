@@ -32,6 +32,12 @@ jobs:
            - name: step one
              run: |  
                 echo "The value is ${{ needs.firstjob.outputs.sample }}"
+    thirdjob:
+        name: Sample Job 
+        uses: ./.github/workflows/workflowcall.yml
+        with:
+            user: ${{ inputs.allInputs }} 
+            pwd: ${{ inputs.noInputs }} 
        
                   
 
