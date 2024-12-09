@@ -5,6 +5,7 @@ jobs:
     first-job: 
         name: Testing my first job
         runs-on: ubuntu-latest
+        continue-on-error: true 
         strategy:
           matrix:
             os_version: [1,2,3]
