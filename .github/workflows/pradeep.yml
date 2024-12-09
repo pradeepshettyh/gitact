@@ -23,5 +23,3 @@ jobs:
             echo "Hello world ${{ inputs.branchname }} ----- ${{ inputs.urname }}"
         - name: calling reusable flow
           uses: ./.github/workflows/reusable.yml
-          with:
-            bname: pradeep
