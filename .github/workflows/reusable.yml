@@ -1,1 +1,19 @@
 
+name: Wflow call flow
+on: 
+    workflow_call: 
+        inputs:
+            bname:
+                default: matres
+                description: Enter branch name
+                required: true
+                type: string
+run-name: Testing few  things
+jobs:
+    hellofelow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Enter something
+              run: |
+                echo "Hello world ${{ inputs.bname }}"
+
