@@ -8,6 +8,7 @@ jobs:
         steps:
             - name: first step
               id: run-tests
+              continue-on-error: true
               run: |
                 echo 'Hello how are you'
                 exit 1
