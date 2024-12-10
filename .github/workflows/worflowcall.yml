@@ -12,6 +12,14 @@ on:
                 type: string
                 required: true
                 default: gender workflow
+        outputs:
+            result:
+                description: some results
+                value: ${{ jobs.myjob.outputs.someData }}
+        secrets:
+            hello:
+                description: "data from external"
+ 
 jobs:
     myjob:
         name: sample job
@@ -21,7 +29,7 @@ jobs:
         steps:
             - name:  some step
               run: |
-                echo "Hellow world ${{ inputs.browsername }} ---> ${{ inputs.gender }}" 
+                echo "Hellow world ${{ inputs.browsername }} ---> ${{ inputs.gender }} ---> ${{ secrets.hello }}" 
             - name: output data
               id: kaka
               run: |
