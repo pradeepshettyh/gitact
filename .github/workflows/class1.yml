@@ -29,6 +29,7 @@ jobs:
                 echo "Browser name ${{ inputs.browsername }} ----> ${{ inputs.gender }}"
                 exit 1
     hellojob:
+        if: failure()
         name: hello job
         runs-on: ubuntu-latest
         steps:
