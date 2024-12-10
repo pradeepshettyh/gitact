@@ -9,6 +9,14 @@ jobs:
             matrix:
                 nodeversion: [1,3,5,7]
                 subversion: [2,4,6]
+                exclude:
+                    - nodeversion: 7
+                      subversion: 6
+                    - nodeversion: 5
+                      subversion: 4
+                include:
+                    - nodeversion: 10
+                      subversion: 15
         steps:
             - name: hello steps
               run: |
