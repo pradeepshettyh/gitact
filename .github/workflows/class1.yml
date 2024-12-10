@@ -27,21 +27,36 @@ jobs:
               id: fstid
               run: |
                 echo "Browser name ${{ inputs.browsername }} ----> ${{ inputs.gender }}"
-    secondjob:
-        name: workflowjob
-        uses: ./.github/workflows/worflowcall.yml
-        with: 
-            browsername: ${{ inputs.browsername }}
-            gender: ${{ inputs.gender }}
-        secrets: 
-            hello: ${{ secrets.REPO_XYZ }}
-    thirdjob:
-        name: thirdjob
-        needs: secondjob
+                exit 1
+    hellojob:
+        name: hello job
         runs-on: ubuntu-latest
         steps:
-            - name: hello jamal
+            - name: kevu keka
+              run: echo "Hello world 1"
+            - name: keko keka
+              run: echo "howda keka keka"
+            - name: nale nindu
               run: |
-                echo "hello how are you ${{ needs.secondjob.outputs.result }}"
+                sleep 15
+                echo "ivathu nandu howda"
+                echo "huliya ninda"
+                
+    # secondjob:
+    #     name: workflowjob
+    #     uses: ./.github/workflows/worflowcall.yml
+    #     with: 
+    #         browsername: ${{ inputs.browsername }}
+    #         gender: ${{ inputs.gender }}
+    #     secrets: 
+    #         hello: ${{ secrets.REPO_XYZ }}
+    # thirdjob:
+    #     name: thirdjob
+    #     needs: secondjob
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: hello jamal
+    #           run: |
+    #             echo "hello how are you ${{ needs.secondjob.outputs.result }}"
         
 
