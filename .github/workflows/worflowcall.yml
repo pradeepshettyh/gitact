@@ -1,0 +1,30 @@
+name: workflow callable
+run-name: example for run workflow
+on: 
+    workflow_call: 
+        inputs:
+            browsername:
+                type: string
+                default: chrome workflow
+                required: true
+                description: enter browser name
+            gender:
+                type: string
+                required: true
+                default: gender workflow
+jobs:
+    myjob:
+        name: sample job
+        outputs:
+            someData: ${{ steps.kaka.outputs.keka }}
+        runs-on: ubuntu-latest
+        steps:
+            - name:  some step
+              run: |
+                echo "Hellow world ${{ inputs.browsername }} ---> ${{ inputs.gender }}" 
+            - name: output data
+              id: kaka
+              run: |
+                echo "keka=kevvukeka" >> $GITHUB_OUTPUT
+
+            
