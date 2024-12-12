@@ -1,0 +1,16 @@
+name: learning something new
+run-name: running few tests
+on: 
+    branch_protection_rule: 
+        types: 
+            - created
+            - edited
+            - deleted
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: hello some
+              run: |
+                echo "Hello worlds"
+
