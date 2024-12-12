@@ -2,7 +2,7 @@ name: learning something new
 run-name: running few tests
 on:
     workflow_run: 
-        workflows: [testing example]
+        workflows: [Strategy example]
         types: completed
     workflow_dispatch:
       inputs:
