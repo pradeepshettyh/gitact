@@ -30,9 +30,19 @@ jobs:
         - run: |
             echo "Log level: $${{ env.ENVIRONMENT }}"
             echo "Tags: $TAGS"
-            echo "Environment: $ENVIRONMENT"
+            echo "Environment: $ENVIRONMENT" 
           env:
             LEVEL: ${{ inputs.logLevel }}
             TAGS: ${{ inputs.tags }}
             ENVIRONMENT: ${{ inputs.environment }}
+    on-success:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        steps:
+         - run: echo 'The triggering workflow passed'
+    on-failure:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+        steps:
+         - run: echo 'The triggering workflow failed'
 
