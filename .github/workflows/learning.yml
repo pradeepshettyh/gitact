@@ -1,6 +1,9 @@
 name: learning something new
 run-name: running few tests
 on:
+    workflow_run: 
+        workflows: [testing example]
+        types: completed
     workflow_dispatch:
       inputs:
         logLevel:
@@ -25,7 +28,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: |
-            echo "Log level: $LEVEL"
+            echo "Log level: $${{ env.ENVIRONMENT }}"
             echo "Tags: $TAGS"
             echo "Environment: $ENVIRONMENT"
           env:
