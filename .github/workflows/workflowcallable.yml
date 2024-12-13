@@ -16,7 +16,7 @@ on:
         outputs:
             somedata: 
                 description: this will be returned
-                value: somedata
+                value: ${{ jobs.stepone.outputs.somekaka }}
         secrets:
             somekaka:
                 description: some secrets
@@ -25,8 +25,11 @@ jobs:
     stepone:
         name: running callable job
         runs-on: ubuntu-latest
+        outputs:
+            somekaka: ${{ steps.ke.outputs.kaka }}
         steps:
             - name: calling reusable
+              id: ke
               run: |
                 echo "User name is ${{ inputs.username }} ${{ inputs.password }} ${{ secrets.somekaka }} hello mama"
                 echo "kaka=pradeep shetty" >> $GITHUB_OUTPUT

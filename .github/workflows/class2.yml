@@ -44,5 +44,13 @@ jobs:
             password: ${{ inputs.password }}
         secrets: 
             somekaka: ${{ secrets.REPO_XYZ }}
+    thirdjob:
+        name: third job
+        needs: secondjob
+        runs-on: ubuntu-latest
+        steps:
+            - name: some data
+              run: |
+                echo "${{ needs.secondjob.outputs.somedata  }}"
 
 
