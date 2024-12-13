@@ -24,10 +24,10 @@ jobs:
                 osversion: [2,6]
                 exclude:
                     - nodeversion: 3
-                    - osversion: 6
+                      osversion: 6
                 include: 
                     - nodeversion: 10
-                    - osversion: 16
+                      osversion: 16
         runs-on: ubuntu-latest
         steps:
             - name: checkout the code
