@@ -55,7 +55,7 @@ jobs:
               env:
                 data1: ${{ github.event.pull_request.title }} 
               run: |
-                prtitle = "${{ github.event.pull_request.title }}"
+                prtitle="${{ github.event.pull_request.title }}"
                 if [[ "$prtitle" == *"bug"* ]]; then
                 echo "${{ needs.secondjob.outputs.somedata  }}"
                 else
