@@ -50,10 +50,10 @@ jobs:
         name: third job
         needs: secondjob
         runs-on: ubuntu-latest
-        env:
-            data1: ${{ github.event.pull_request.title }} 
         steps:
             - name: some data
+              env:
+                data1: ${{ github.event.pull_request.title }} 
               run: |
                 echo "${{ needs.secondjob.outputs.somedata  }}"
                 echo "$data1  token is ${{ secrets.GITHUB_TOKEN }} --->"
