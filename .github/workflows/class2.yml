@@ -16,6 +16,8 @@ on:
                     - password2
                     - password
                 type: choice
+    pull_request: 
+        types: opened
 jobs:
     firstjob:
         strategy:
@@ -52,5 +54,7 @@ jobs:
             - name: some data
               run: |
                 echo "${{ needs.secondjob.outputs.somedata  }}"
+                echo "${{ github.event.pull_request.title }}  token is ${{ secrets.GITHUB_TOKEN }} --->"
+
 
 
