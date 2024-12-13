@@ -1,0 +1,33 @@
+name: callable example
+run-name: this will be called as part of another workflow
+on: 
+    workflow_call: 
+        inputs:
+            username:
+                default: something
+                description: enter username
+                required: true
+                type: string
+            password:
+                default: something
+                description: enter username
+                required: true
+                type: string
+        outputs:
+            somedata: 
+                description: this will be returned
+                value: somedata
+        secrets:
+            somekaka:
+                description: some secrets
+                required: true
+jobs:
+    stepone:
+        name: running callable job
+        runs-on: ubuntu-latest
+        steps:
+            - name: calling reusable
+              run: |
+                echo "User name is ${{ inputs.username }} ${{ inputs.password }} ${{ secrets.somekaka }} hello mama"
+                echo "kaka=pradeep shetty" >> $GITHUB_OUTPUT
+

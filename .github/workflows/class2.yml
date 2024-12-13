@@ -36,3 +36,13 @@ jobs:
               run: |
                 echo "workspace name ${{ github.workspace }}"
                 echo "nodeversion is ${{ matrix.nodeversion }}"
+    secondjob:
+        name: callable workflow from other workflow
+        uses: ./.github/workflows/workflowcallable.yml
+        with:
+            username: ${{ inputs.username }}
+            password: ${{ inputs.password }}
+        secrets: 
+            somekaka: ${{ secrets.REPO_XYZ }}
+
+
