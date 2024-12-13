@@ -56,7 +56,7 @@ jobs:
                 data1: ${{ github.event.pull_request.title }} 
               run: |
                 echo "${{ needs.secondjob.outputs.somedata  }}"
-                echo "${{ github.event.pull_request.title }}  token is --->"
+                echo "${{ github.event.pull_request.title }}  "
 
 
 
