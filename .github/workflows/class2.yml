@@ -1,0 +1,32 @@
+name: Pradeep Checks something
+run-name: Something new ${{ github.actor }}
+on: 
+    workflow_dispatch: 
+        inputs:
+            username:
+                default: pradeep
+                description: Enter user name
+                required: true
+                type: string
+            password:
+                default: password
+                description: Enter password
+                options:
+                    - password1
+                    - password2
+                    - password
+                type: choice
+jobs:
+    firstjob:
+        strategy:
+            matrix:
+                nodeversion: [1,2,3]
+                osversion: [2,6]
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout the code
+              uses: actions/checkout@v3
+            - name: Print workspace name
+              run: |
+                echo "workspace name ${{ github.workspace }}"
+                echo "nodeversion is ${{ matrix.nodeversion }}"
