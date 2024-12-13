@@ -55,8 +55,9 @@ jobs:
               env:
                 data1: ${{ github.event.pull_request.title }} 
               run: |
+                prtitle = ${{ github.event.pull_request.title }} 
                 echo "${{ needs.secondjob.outputs.somedata  }}"
-                echo "${{ github.event.pull_request.title }}  "
+                echo "something something"
 
 
 
