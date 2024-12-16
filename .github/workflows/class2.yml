@@ -33,7 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Kevvu keka
-              uses: ./.github/actions/cached-deps
+              uses: ./.github/actions/cahced-deps/action.yml
              
         # steps:
         #     - name: checkout the code
