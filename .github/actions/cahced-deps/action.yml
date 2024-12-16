@@ -1,0 +1,11 @@
+name: 'testing new stuff'
+description: 'Get dependency and cache them'
+runs: 
+  using: 'composite'
+  steps:
+    - name: checkout the code
+      uses: actions/checkout@v3
+    - name: Print workspace name
+      run: |
+        echo "workspace name ${{ github.workspace }}"
+        echo "nodeversion is ${{ matrix.nodeversion }}"
