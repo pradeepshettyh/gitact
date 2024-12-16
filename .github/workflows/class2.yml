@@ -32,16 +32,12 @@ jobs:
                       osversion: 16
         runs-on: ubuntu-latest
         steps:
-            - name: Kevvu keka
-              uses: ./.github/actions/cahced-deps/action.yml
-             
-        # steps:
-        #     - name: checkout the code
-        #       uses: actions/checkout@v3
-        #     - name: Print workspace name
-        #       run: |
-        #         echo "workspace name ${{ github.workspace }}"
-        #         echo "nodeversion is ${{ matrix.nodeversion }}"
+            - name: checkout the code
+              uses: actions/checkout@v3
+            - name: Print workspace name
+              run: |
+                echo "workspace name ${{ github.workspace }}"
+                echo "nodeversion is ${{ matrix.nodeversion }}"
     secondjob:
         name: callable workflow from other workflow
         uses: ./.github/workflows/workflowcallable.yml
@@ -65,6 +61,20 @@ jobs:
                 else
                 echo "something something"
                 fi
+    fourthjob:
+        name: i am in fourth job
+        runs-on: ubuntu-latest
+        steps:
+            - name: something new
+              run: |
+                echo "hellow wrdls"
+            - name: new composite
+              uses: ./.github/actions/cahced-deps
+                    
+        
+        
+
+        
 
 
 
