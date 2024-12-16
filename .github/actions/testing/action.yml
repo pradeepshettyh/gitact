@@ -1,15 +1,28 @@
 name: testing check input
 description: Pradeep testing some data
+inputs:
+  username:
+    required: true
+    description: 'Enter user name'
+  password:
+    required: false
+    description: 'Enter password'
+    default: 'password'
+outputs:
+  somedata:
+    description: returns random number
+    value: ${{ steps.ndstep.kaka }}
 runs:
   using: 'composite'
   steps:
     - name: First Step
       id: ststep
       run: |
-       echo 'some testing in 1st step'
+       echo 'some testing in 1st step ${{ inputs.username }} ---> ${{ inputs.password }}'
       shell: bash
     - name: Second step
       id: ndstep
       run: |
         echo 'I am in second step'
+        echo 'kaka=keka' >> $GITHUB_OUTPUT
       shell: bash
