@@ -9,4 +9,4 @@ jobs:
             - name: checkout the code
               uses: actions/checkout@v3
             - name: i am teisng something
-              uses: ./.github/actions/cahced-deps
+              uses: ./.github/actions/testing

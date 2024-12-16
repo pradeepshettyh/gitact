@@ -1,0 +1,12 @@
+name: testing check input
+description: ${{ github.actor }} testing some data
+runs:
+  steps:
+    - name: First Step
+      id: 1ststep
+      run: |
+       echo 'some testing in 1st step'
+    - name: Second step
+      id: 2ndstep
+      run: |
+        echo 'I am in second step'
