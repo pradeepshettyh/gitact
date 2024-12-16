@@ -3,9 +3,6 @@ description: 'Get dependency and cache them'
 runs: 
   using: 'composite'
   steps:
-    - name: checkout the code
-      uses: actions/checkout@v3
-      shell: bash
     - name: Print workspace name
       run: |
         echo "workspace name github.workspace"
