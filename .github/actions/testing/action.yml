@@ -1,6 +1,7 @@
 name: testing check input
 description: Pradeep testing some data
 runs:
+  using: 'composite'
   steps:
     - name: First Step
       id: ststep
