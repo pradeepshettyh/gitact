@@ -11,7 +11,7 @@ inputs:
 outputs:
   somedata:
     description: returns random number
-    value: ${{ steps.ndstep.kaka }}
+    value: ${{ steps.ndstep.outputs.kaka }}
 runs:
   using: 'composite'
   steps:
